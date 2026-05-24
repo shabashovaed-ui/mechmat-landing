@@ -443,13 +443,13 @@
                     Начать заново
                   </button>
                   <div class="text-xs font-mono text-gray-400" id="tasks-progress-text">
-                    3/3 выполнено
+                    0/3 выполнено
                   </div>
                 </div>
               </div>
 
               <ol class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="tasks-progress" role="list">
-                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_01" data-status="done">
+                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_01" data-status="active"
                   <div class="flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center" aria-hidden="true">
                       <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
@@ -468,7 +468,7 @@
                   </span>
                 </li>
 
-                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_02" data-status="done" aria-disabled="true">
+                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_02" data-status="locked" aria-disabled="true"
                   <div class="flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center" aria-hidden="true">
                       <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
@@ -487,7 +487,7 @@
                   </span>
                 </li>
 
-                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_03" data-status="done" aria-disabled="true">
+                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_03" data-task="task_03" data-status="locked" aria-disabled="true"
                   <div class="flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center" aria-hidden="true">
                       <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
@@ -517,7 +517,7 @@
           </div>
 
           <!-- Task 1: Bayes paradox -->
-          <div class="bg-white border border-border p-6 md:p-10 rounded-3xl shadow-soft gsap-reveal relative overflow-hidden" data-task="task_01" data-status="done" id="task-01" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
+          <div class="bg-white border border-border p-6 md:p-10 rounded-3xl shadow-soft gsap-reveal relative overflow-hidden" data-task="task_01" data-status="active" id="task-01" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
             <div class="absolute top-0 right-0 p-6 opacity-10 transition-opacity">
               <iconify-icon icon="solar:heart-pulse-2-linear" width="120"></iconify-icon>
             </div>
@@ -619,7 +619,7 @@
           </div>
 
           <!-- Task 2: Shortest path -->
-          <div class="bg-white border border-border p-6 md:p-10 rounded-3xl shadow-soft gsap-reveal relative overflow-hidden" data-task="task_02" data-status="done" id="task-02" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
+          <div class="bg-white border border-border p-6 md:p-10 rounded-3xl shadow-soft gsap-reveal relative overflow-hidden" data-task="task_02" data-status="locked" id="task-02" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
             <div class="absolute top-0 right-0 p-6 opacity-10 transition-opacity">
               <iconify-icon icon="solar:map-point-wave-linear" width="120"></iconify-icon>
             </div>
