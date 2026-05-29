@@ -253,13 +253,13 @@
             Карьера
           </a>
         </nav>
-        <button type="button" id="a11y-toggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" style="cursor:pointer" onclick="document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',document.body.classList.contains('a11y-vision'))">
-          A+
-        </button>
-        <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors" aria-label="Открыть меню" aria-expanded="false">
+        <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors" aria-label="Открыть меню" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('hidden');this.setAttribute('aria-expanded',!m.classList.contains('hidden'))">
           <iconify-icon icon="solar:hamburger-menu-linear" width="20"></iconify-icon>
         </button>
         <div id="mobile-menu" class="md:hidden hidden absolute left-0 right-0 top-16 bg-white/95 backdrop-blur-md border-b border-border p-4">
+          <button type="button" id="a11y-toggle" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих">
+            A+
+          </button>
           <div class="px-6 py-4 flex flex-col gap-2 text-sm font-medium text-gray-600">
             <a href="#myths" class="px-4 py-3 rounded-2xl hover:bg-muted transition-colors">
               Мифы
@@ -276,7 +276,7 @@
           </div>
         </div>
         <div class="hidden md:flex items-center gap-2 md:gap-3 shrink-0">
-          <button type="button" id="a11y-toggle-desktop" class="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" style="cursor:pointer" onclick="document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',document.body.classList.contains('a11y-vision'))">
+          <button type="button" id="a11y-toggle-desktop" class="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" onclick="document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',document.body.classList.contains('a11y-vision'))" style="cursor:pointer">
             <span class="font-mono">A+</span>
           </button>
           <a href="https://www.sgu.ru/struktura/mechmath" target="_blank" class="hidden md:inline-flex items-center justify-center px-3 md:px-3.5 py-2 text-sm font-medium text-foreground bg-muted border border-border rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap leading-tight text-center">
@@ -290,7 +290,7 @@
       </div>
     </header>
 
-    <main class="overflow-hidden">
+    <main class="overflow-x-hidden">
       <section class="min-h-[100svh] flex md:px-16 pt-16 pr-6 pl-6 relative items-center justify-center">
         <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none z-0" id="hero-grid"></div>
         <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none opacity-100">
@@ -331,9 +331,15 @@
         <div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce">
           <iconify-icon icon="solar:mouse-minimalistic-linear" width="24" height="24"></iconify-icon>
         </div>
+        <!-- Gradient fade-out at bottom of hero -->
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none"></div>
       </section>
 
-      <section class="md:px-16 pt-24 pr-6 pb-24 pl-6" id="myths">
+      <section class="md:px-16 pt-24 pr-6 pb-24 pl-6 relative" id="myths">
+        <!-- Faded particles background for myths section -->
+        <div id="particles-myths" class="absolute inset-0 z-0 pointer-events-none opacity-30"></div>
+        <!-- Gradient fade-out at bottom of myths section (before tasks) -->
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none"></div>
         <div class="max-w-[1440px] mx-auto">
           <div class="grid lg:grid-cols-2 gap-16 gap-x-16 gap-y-16 items-start">
             <div class="gsap-reveal" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
@@ -451,8 +457,8 @@
               <ol class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="tasks-progress" role="list">
                 <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_01" data-status="active">
                   <div class="flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-accent-light text-accent flex items-center justify-center" aria-hidden="true">
-                      <iconify-icon icon="solar:play-circle-linear" width="18"></iconify-icon>
+                    <span class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center" aria-hidden="true">
+                      <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
                     </span>
                     <div>
                       <div class="text-sm font-medium tracking-tight">
@@ -464,14 +470,14 @@
                     </div>
                   </div>
                   <span class="text-xs font-mono text-gray-400" data-status-badge="">
-                    В процессе
+                    Выполнено
                   </span>
                 </li>
 
                 <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_02" data-status="locked" aria-disabled="true">
                   <div class="flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-gray-50 text-gray-400 flex items-center justify-center" aria-hidden="true">
-                      <iconify-icon icon="solar:lock-keyhole-linear" width="18"></iconify-icon>
+                    <span class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center" aria-hidden="true">
+                      <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
                     </span>
                     <div>
                       <div class="text-sm font-medium tracking-tight">
@@ -483,14 +489,14 @@
                     </div>
                   </div>
                   <span class="text-xs font-mono text-gray-400" data-status-badge="">
-                    
+                    Выполнено
                   </span>
                 </li>
 
                 <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_03" data-status="locked" aria-disabled="true">
                   <div class="flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-gray-50 text-gray-400 flex items-center justify-center" aria-hidden="true">
-                      <iconify-icon icon="solar:lock-keyhole-linear" width="18"></iconify-icon>
+                    <span class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center" aria-hidden="true">
+                      <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
                     </span>
                     <div>
                       <div class="text-sm font-medium tracking-tight">
@@ -502,7 +508,7 @@
                     </div>
                   </div>
                   <span class="text-xs font-mono text-gray-400" data-status-badge="">
-                    
+                    Выполнено
                   </span>
                 </li>
               </ol>
@@ -997,7 +1003,7 @@
               <div class="swiper-slide w-[300px] md:w-[400px] !h-auto" role="group" aria-label="5 / 6" style="margin-right: 24px;">
                 <div class="bg-white rounded-2xl p-6 border border-border flex flex-col h-full group">
                   <div class="relative h-48 md:h-56 bg-muted rounded-xl overflow-hidden mb-5 shrink-0 flex items-center justify-center">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ddf22f19-11ea-4564-8f7e-9bd1bd3aed82_800w.png" alt="Никита" class="w-full h-full object-cover" loading="lazy">
+                    <img src="nikita.jpg" alt="Никита" class="w-full h-full object-cover" loading="lazy">
                   </div>
                   <div class="flex-1 flex flex-col overflow-hidden">
                     <div class="text-base font-semibold tracking-tight mb-1 text-accent">
@@ -1324,8 +1330,12 @@
                 mechmath@sgu.ru
               </a>
             </div>
-            <a href="https://yandex.ru/maps/-/CPDIzYOp" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">
-              Саратов, ул. Астраханская, 83к9
+            <a href="https://yandex.ru/maps/?text=Саратов%2C%20ул.%20Астраханская%2C%2083" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">
+              Саратов, ул. Астраханская, 83
+            </a>
+            <span class="text-gray-300">·</span>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Саратов%2C%20ул.%20Астраханская%2C%2083" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">
+              Google Maps
             </a>
           </div>
 
@@ -2411,6 +2421,25 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         if (window.particlesJS) {
+          // Myths section - faded particles
+          particlesJS('particles-myths', {
+            "particles": {
+              "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+              "color": { "value": "#4A90E2" },
+              "shape": { "type": "circle" },
+              "opacity": { "value": 0.3, "random": true },
+              "size": { "value": 3, "random": true },
+              "line_linked": { "enable": true, "distance": 150, "color": "#4A90E2", "opacity": 0.15, "width": 1 },
+              "move": { "enable": true, "speed": 0.8, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true }
+            },
+            "retina_detect": true
+          });
+
+          // Hero section - full particles
           particlesJS('particles-js', {
             "particles": {
               "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
