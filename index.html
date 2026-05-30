@@ -1,4 +1,4 @@
-<html lang="ru" class="scroll-smooth antialiased" style="overscroll-behavior:none;"><head>
+<html lang="ru" class="scroll-smooth antialiased" style="touch-action:pan-y;"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Математика — твоя суперсила | Мехмат</title>
@@ -253,14 +253,13 @@
             Карьера
           </a>
         </nav>
-        <button type="button" id="a11y-toggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" onclick="var on=document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',on);var d=document.getElementById('a11y-toggle-desktop');if(d)d.setAttribute('aria-pressed',on);try{localStorage.setItem('a11yVision',on?'1':'0')}catch(e){}">
-          A+
-        </button>
-        <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors" aria-label="Открыть меню" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('hidden');this.setAttribute('aria-expanded',!m.classList.contains('hidden'))">
+        <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors" aria-label="Открыть меню" aria-expanded="false">
           <iconify-icon icon="solar:hamburger-menu-linear" width="20"></iconify-icon>
         </button>
         <div id="mobile-menu" class="md:hidden hidden absolute left-0 right-0 top-16 bg-white/95 backdrop-blur-md border-b border-border p-4">
-
+          <button type="button" id="a11y-toggle" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" onclick="var on=document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',on);try{localStorage.setItem('a11yVision',on?'1':'0')}catch(e){}">
+            A+
+          </button>
           <div class="px-6 py-4 flex flex-col gap-2 text-sm font-medium text-gray-600">
             <a href="#myths" class="px-4 py-3 rounded-2xl hover:bg-muted transition-colors">
               Мифы
@@ -277,7 +276,7 @@
           </div>
         </div>
         <div class="hidden md:flex items-center gap-2 md:gap-3 shrink-0">
-          <button type="button" id="a11y-toggle-desktop" class="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" onclick="var on=document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',on);var m=document.getElementById('a11y-toggle');if(m)m.setAttribute('aria-pressed',on);try{localStorage.setItem('a11yVision',on?'1':'0')}catch(e){}">
+          <button type="button" id="a11y-toggle-desktop" class="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" onclick="var on=document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',on);try{localStorage.setItem('a11yVision',on?'1':'0')}catch(e){}">
             <span class="font-mono">A+</span>
           </button>
           <a href="https://www.sgu.ru/struktura/mechmath" target="_blank" class="hidden md:inline-flex items-center justify-center px-3 md:px-3.5 py-2 text-sm font-medium text-foreground bg-muted border border-border rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap leading-tight text-center">
@@ -291,7 +290,7 @@
       </div>
     </header>
 
-    <main class="overflow-x-hidden" style="overscroll-behavior: none;">
+    <main>
       <section class="min-h-[100svh] flex md:px-16 pt-16 pr-6 pl-6 relative items-center justify-center">
         <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none z-0" id="hero-grid"></div>
         <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none opacity-100">
@@ -329,15 +328,14 @@
           </div>
         </div>
 
-        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none"></div>
-        <div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce z-20">
+        <div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce">
           <iconify-icon icon="solar:mouse-minimalistic-linear" width="24" height="24"></iconify-icon>
         </div>
+        <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-white pointer-events-none z-10"></div>
       </section>
 
       <section class="md:px-16 pt-24 pr-6 pb-24 pl-6 relative" id="myths">
-        <div id="particles-myths" class="absolute inset-0 z-0 pointer-events-none opacity-20"></div>
-        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none"></div>
+        <div id="particles-myths" class="absolute inset-0 z-0 pointer-events-none opacity-40"></div>
         <div class="max-w-[1440px] mx-auto">
           <div class="grid lg:grid-cols-2 gap-16 gap-x-16 gap-y-16 items-start">
             <div class="gsap-reveal" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
@@ -892,8 +890,7 @@
         </div>
       </section>
 
-      <section class="md:px-16 overflow-hidden pt-24 pr-6 pb-24 pl-6 relative" id="stories">
-        <div id="particles-stories" class="absolute inset-0 z-0 pointer-events-none opacity-50"></div>
+      <section class="md:px-16 overflow-hidden pt-24 pr-6 pb-24 pl-6" id="stories">
         <div class="max-w-[1440px] mx-auto">
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gsap-reveal" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
             <div class="">
@@ -920,7 +917,7 @@
               <div class="swiper-slide w-[300px] md:w-[400px] !h-auto swiper-slide-active" role="group" aria-label="1 / 6" style="margin-right: 24px;">
                 <div class="bg-white rounded-2xl p-6 border border-border flex flex-col h-full group">
                   <div class="relative h-48 md:h-56 bg-muted rounded-xl overflow-hidden mb-5 shrink-0 flex items-center justify-center">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/846a0f1b-378a-41bf-8692-ed1198fd8374_800w.png" alt="Роман" class="w-full h-full max-h-max object-cover">
+                    <img src="roman.jpg" alt="Роман" class="w-full h-full max-h-max object-cover">
                   </div>
                   <div class="flex-1 flex flex-col overflow-hidden">
                     <div class="text-base font-semibold tracking-tight mb-1 text-accent">
@@ -966,7 +963,7 @@
               <div class="swiper-slide w-[300px] md:w-[400px] !h-auto" role="group" aria-label="3 / 6" style="margin-right: 24px;">
                 <div class="bg-white rounded-2xl p-6 border border-border flex flex-col h-full group">
                   <div class="relative h-48 md:h-56 bg-muted rounded-xl overflow-hidden mb-5 shrink-0 flex items-center justify-center">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d67f9906-8ce9-471d-8f5b-1acb5252e736_800w.png" alt="Елена" class="w-full h-full object-cover">
+                    <img src="elena.jpg" alt="Елена" class="w-full h-full object-cover">
                   </div>
                   <div class="flex-1 flex flex-col overflow-hidden">
                     <div class="text-base font-semibold tracking-tight mb-1 text-accent">
@@ -1251,7 +1248,7 @@
           <div class="grid md:grid-cols-2 gap-8 items-start bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-sm text-left">
             <div class="flex flex-col items-center justify-center text-center h-full">
               <div class="bg-white p-4 rounded-2xl mb-4 shadow-soft">
-                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/aa5cb3dc-dc4b-41e1-9e0d-42a30e8a8b27_800w.png" alt="QR VK" class="w-48 h-48">
+                <img src="qr-vk.png" alt="QR VK" class="w-48 h-48">
               </div>
               <p class="text-lg font-medium tracking-tight">
                 Подписывайся на нас в ВК
@@ -2422,28 +2419,18 @@
         if (window.particlesJS) {
           particlesJS('particles-myths', {
             "particles": {
-              "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
+              "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
               "color": { "value": "#4A90E2" },
               "shape": { "type": "circle" },
-              "opacity": { "value": 0.25, "random": true },
+              "opacity": { "value": 0.35, "random": true },
               "size": { "value": 3, "random": true },
-              "line_linked": { "enable": true, "distance": 150, "color": "#4A90E2", "opacity": 0.1, "width": 1 },
-              "move": { "enable": true, "speed": 0.6, "direction": "none", "random": true, "out_mode": "out" }
+              "line_linked": { "enable": true, "distance": 150, "color": "#4A90E2", "opacity": 0.2, "width": 1 },
+              "move": { "enable": true, "speed": 0.8, "direction": "none", "random": true, "out_mode": "out" }
             },
-            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
-            "retina_detect": true
-          });
-          particlesJS('particles-stories', {
-            "particles": {
-              "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
-              "color": { "value": "#4A90E2" },
-              "shape": { "type": "circle" },
-              "opacity": { "value": 0.5, "random": true },
-              "size": { "value": 3.5, "random": true },
-              "line_linked": { "enable": true, "distance": 150, "color": "#4A90E2", "opacity": 0.3, "width": 1 },
-              "move": { "enable": true, "speed": 1.0, "direction": "none", "random": true, "out_mode": "out" }
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true }
             },
-            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } },
             "retina_detect": true
           });
           particlesJS('particles-js', {
