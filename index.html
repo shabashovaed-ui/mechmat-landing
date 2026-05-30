@@ -253,11 +253,11 @@
             Карьера
           </a>
         </nav>
-        <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors" aria-label="Открыть меню" aria-expanded="false">
+        <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors" aria-label="Открыть меню" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('hidden');this.setAttribute('aria-expanded',!m.classList.contains('hidden'))">
           <iconify-icon icon="solar:hamburger-menu-linear" width="20"></iconify-icon>
         </button>
         <div id="mobile-menu" class="md:hidden hidden absolute left-0 right-0 top-16 bg-white/95 backdrop-blur-md border-b border-border p-4">
-          <button type="button" id="a11y-toggle" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих">
+          <button type="button" id="a11y-toggle" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" onclick="var on=document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',on);var d=document.getElementById('a11y-toggle-desktop');if(d)d.setAttribute('aria-pressed',on);try{localStorage.setItem('a11yVision',on?'1':'0')}catch(e){}">
             A+
           </button>
           <div class="px-6 py-4 flex flex-col gap-2 text-sm font-medium text-gray-600">
@@ -276,7 +276,7 @@
           </div>
         </div>
         <div class="hidden md:flex items-center gap-2 md:gap-3 shrink-0">
-          <button type="button" id="a11y-toggle-desktop" class="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих">
+          <button type="button" id="a11y-toggle-desktop" class="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white hover:bg-muted transition-colors font-mono text-sm font-medium text-foreground" aria-pressed="false" title="Версия для слабовидящих" onclick="var on=document.body.classList.toggle('a11y-vision');this.setAttribute('aria-pressed',on);var m=document.getElementById('a11y-toggle');if(m)m.setAttribute('aria-pressed',on);try{localStorage.setItem('a11yVision',on?'1':'0')}catch(e){}">
             <span class="font-mono">A+</span>
           </button>
           <a href="https://www.sgu.ru/struktura/mechmath" target="_blank" class="hidden md:inline-flex items-center justify-center px-3 md:px-3.5 py-2 text-sm font-medium text-foreground bg-muted border border-border rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap leading-tight text-center">
@@ -445,13 +445,13 @@
                     Начать заново
                   </button>
                   <div class="text-xs font-mono text-gray-400" id="tasks-progress-text">
-                    3/3 выполнено
+                    0/3 выполнено
                   </div>
                 </div>
               </div>
 
               <ol class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="tasks-progress" role="list">
-                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_01" data-status="done">
+                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_01" data-status="active">
                   <div class="flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center" aria-hidden="true">
                       <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
@@ -470,7 +470,7 @@
                   </span>
                 </li>
 
-                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_02" data-status="done" aria-disabled="true">
+                <li class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-border bg-white" data-task="task_02" data-status="locked" aria-disabled="true">
                   <div class="flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center" aria-hidden="true">
                       <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
@@ -509,7 +509,7 @@
                 </li>
               </ol>
 
-              <div id="tasks-reward" class="mt-1 rounded-2xl border border-border bg-white px-4 py-3 text-sm font-light text-gray-600">
+              <div id="tasks-reward" class="mt-1 rounded-2xl border border-border bg-white px-4 py-3 text-sm font-light text-gray-600 hidden">
                 <span class="inline-flex items-center gap-2">
                   <iconify-icon icon="solar:medal-ribbon-star-linear" class="text-accent"></iconify-icon>
                   Вы готовы к мехмату!
@@ -519,7 +519,7 @@
           </div>
 
           <!-- Task 1: Bayes paradox -->
-          <div class="bg-white border border-border p-6 md:p-10 rounded-3xl shadow-soft gsap-reveal relative overflow-hidden" data-task="task_01" data-status="done" id="task-01" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
+          <div class="bg-white border border-border p-6 md:p-10 rounded-3xl shadow-soft gsap-reveal relative overflow-hidden" data-task="task_01" data-status="active" id="task-01" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
             <div class="absolute top-0 right-0 p-6 opacity-10 transition-opacity">
               <iconify-icon icon="solar:heart-pulse-2-linear" width="120"></iconify-icon>
             </div>
@@ -621,7 +621,7 @@
           </div>
 
           <!-- Task 2: Shortest path -->
-          <div class="bg-white border border-border p-6 md:p-10 rounded-3xl shadow-soft gsap-reveal relative overflow-hidden" data-task="task_02" data-status="done" id="task-02" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
+          <div class="bg-white border border-border p-6 md:p-10 rounded-3xl shadow-soft gsap-reveal relative overflow-hidden" data-task="task_02" data-status="locked" id="task-02" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 30px);">
             <div class="absolute top-0 right-0 p-6 opacity-10 transition-opacity">
               <iconify-icon icon="solar:map-point-wave-linear" width="120"></iconify-icon>
             </div>
